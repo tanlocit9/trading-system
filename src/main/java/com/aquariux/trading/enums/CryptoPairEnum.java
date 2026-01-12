@@ -1,5 +1,5 @@
 package com.aquariux.trading.enums;
 
-public enum CrytoPairEnum {
+public enum CryptoPairEnum {
     BTCUSDT, ETHUSDT
 }

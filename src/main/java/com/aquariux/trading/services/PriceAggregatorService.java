@@ -4,7 +4,8 @@ import com.aquariux.trading.dtos.BinanceTicker;
 import com.aquariux.trading.dtos.HuobiResponse;
 import com.aquariux.trading.dtos.HuobiTicker;
 import com.aquariux.trading.entities.BestPriceEntity;
-import com.aquariux.trading.enums.CrytoPairEnum;
+import com.aquariux.trading.enums.CryptoPairEnum;
+import com.aquariux.trading.helpers.EnumUtils;
 import com.aquariux.trading.repositories.BestPriceEntityRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,8 +47,8 @@ public class PriceAggregatorService {
                 return;
             }
             // 3. Process for each pair BTCUSDT and ETHUSDT
-            updateBestPrice(CrytoPairEnum.BTCUSDT, binanceTickers, huobiResponse.getData());
-            updateBestPrice(CrytoPairEnum.ETHUSDT, binanceTickers, huobiResponse.getData());
+            updateBestPrice(CryptoPairEnum.BTCUSDT, binanceTickers, huobiResponse.getData());
+            updateBestPrice(CryptoPairEnum.ETHUSDT, binanceTickers, huobiResponse.getData());
 
             log.info("Successfully updated best prices at: {}", LocalDateTime.now());
         } catch (Exception e) {
@@ -55,15 +56,15 @@ public class PriceAggregatorService {
         }
     }
 
-    private void updateBestPrice(CrytoPairEnum pair, BinanceTicker[] bTickers, List<HuobiTicker> hTickers) {
+    private void updateBestPrice(CryptoPairEnum pair, BinanceTicker[] bTickers, List<HuobiTicker> hTickers) {
         // Find price from Binance
         var bPrice = Arrays.stream(bTickers)
-                .filter(t -> t.getSymbol().equalsIgnoreCase(pair.toString()))
+                .filter(t -> EnumUtils.equals(t.getSymbol(), pair))
                 .findFirst().orElse(null);
 
         // Find price from Huobi
         var hPrice = hTickers.stream()
-                .filter(t -> t.getSymbol().equalsIgnoreCase(pair.toString()))
+                .filter(t -> EnumUtils.equals(t.getSymbol(), pair))
                 .findFirst().orElse(null);
 
         if (bPrice != null && hPrice != null) {
@@ -74,10 +75,10 @@ public class PriceAggregatorService {
             BigDecimal bestAsk = bPrice.getAskPrice().min(hPrice.getAsk());
 
             // Save or update in H2
-            BestPriceEntity entity = bestPriceEntityRepository.findByPair(pair.toString())
+            BestPriceEntity entity = bestPriceEntityRepository.findByPair(pair)
                     .orElse(new BestPriceEntity());
 
-            entity.setPair(pair.toString());
+            entity.setPair(pair);
             entity.setBestBid(bestBid);
             entity.setBestAsk(bestAsk);
 

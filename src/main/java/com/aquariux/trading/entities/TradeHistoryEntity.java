@@ -1,6 +1,8 @@
 package com.aquariux.trading.entities;
 
+import com.aquariux.trading.enums.CryptoPairEnum;
 import com.aquariux.trading.enums.OrderSideEnum;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,10 +36,7 @@ public class TradeHistoryEntity extends BaseAudit {
     private UUID id;
 
     @Column(nullable = false)
-    private UUID userId;
-
-    @Column(nullable = false)
-    private String pair;
+    private CryptoPairEnum pair;
 
     @Enumerated(EnumType.STRING)
     private OrderSideEnum side;
@@ -53,4 +54,9 @@ public class TradeHistoryEntity extends BaseAudit {
     private LocalDateTime executedAt;
 
     private String source;
+
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "user_entity_id")
+    private UserEntity userEntity;
+
 }

@@ -1,5 +1,6 @@
 package com.aquariux.trading.entities;
 
+import com.aquariux.trading.enums.CryptoPairEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class BestPriceEntity extends BaseAudit {
     private String id;
 
     @Column(nullable = false)
-    private String pair;
+    private CryptoPairEnum pair;
 
     @Column(precision = 18, scale = 8)
     private BigDecimal bestBid;
