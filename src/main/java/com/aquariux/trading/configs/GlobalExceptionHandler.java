@@ -8,6 +8,10 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * Centralized exception handler for REST controllers.
+ * <p>Converts common exceptions into structured `BaseErrorResponse` payloads.</p>
+ */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {

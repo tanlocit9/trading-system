@@ -2,6 +2,9 @@ package com.aquariux.trading.helpers;
 
 import java.util.Optional;
 
+/**
+ * Utility helpers for working with enums in a null-safe and case-insensitive manner.
+ */
 public final class EnumUtils {
 
     private EnumUtils() {

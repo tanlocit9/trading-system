@@ -14,6 +14,10 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 
+/**
+ * Entity representing the best bid/ask prices for a trading pair.
+ * <p>Stored in the `best_price` table and extended from `BaseAudit`.</p>
+ */
 @Entity
 @Getter
 @Setter

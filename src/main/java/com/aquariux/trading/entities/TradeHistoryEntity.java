@@ -23,6 +23,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+/**
+ * Historical record of executed trades.
+ * <p>Includes pair, side, price, quantity, execution timestamp and reference to the executing user.</p>
+ */
 @Entity
 @Getter
 @Setter

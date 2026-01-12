@@ -17,6 +17,10 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 
+/**
+ * Persistent representation of an order placed by a user.
+ * <p>Contains order side, status, pricing and quantity information.</p>
+ */
 @Entity
 @Getter
 @Setter

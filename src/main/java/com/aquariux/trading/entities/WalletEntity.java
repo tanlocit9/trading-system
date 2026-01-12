@@ -17,6 +17,10 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a user's wallet balance for a specific cryptocurrency.
+ * <p>Tracks available and locked balances and links to the owning `UserEntity`.</p>
+ */
 @Entity
 @Getter
 @Setter

@@ -2,6 +2,9 @@ package com.aquariux.trading.helpers;
 
 import java.util.List;
 
+/**
+ * Constants and helpers for supported trading pairs.
+ */
 public class TradingPair {
     public static final String BTC_USDT = "BTCUSDT";
 

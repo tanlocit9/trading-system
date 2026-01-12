@@ -19,6 +19,10 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Scheduled service that aggregates prices from external exchanges (Binance, Huobi)
+ * and updates the `BestPriceEntity` records.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -34,6 +38,9 @@ public class PriceAggregatorService {
     @Value("${huobi.api.url:https://api.huobi.pro/market/tickers}")
     private String huobiUrl;
 
+    /**
+     * Periodically fetches and aggregates best bid/ask prices from supported exchanges.
+     */
     @Scheduled(fixedRate = 10000) // Run every 10 seconds
     public void aggregatePrices() {
         try {

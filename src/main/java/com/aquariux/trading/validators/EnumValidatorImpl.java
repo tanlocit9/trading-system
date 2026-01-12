@@ -1,12 +1,15 @@
 package com.aquariux.trading.validators;
 
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
-
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+/**
+ * Implementation of `EnumValidator` that verifies a string matches one of the enum constant names.
+ */
 public class EnumValidatorImpl implements ConstraintValidator<EnumValidator, String> {
     private List<String> acceptedValues;
 

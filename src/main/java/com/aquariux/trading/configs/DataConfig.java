@@ -15,6 +15,10 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+/**
+ * Bootstraps demo data on application startup.
+ * <p>Creates a default test user, initializes wallets and seed prices for development.</p>
+ */
 @Component
 @RequiredArgsConstructor
 @Transactional

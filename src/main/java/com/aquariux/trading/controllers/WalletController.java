@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller exposing wallet-related operations such as retrieving balances.
+ */
 @RestController
 @RequestMapping("/api/wallets")
 @RequiredArgsConstructor

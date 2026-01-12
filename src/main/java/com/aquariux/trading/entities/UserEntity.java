@@ -13,6 +13,10 @@ import lombok.ToString;
 
 import java.util.UUID;
 
+/**
+ * Represents an application user.
+ * <p>Contains authentication details and audit metadata.</p>
+ */
 @Entity
 @Getter
 @Setter

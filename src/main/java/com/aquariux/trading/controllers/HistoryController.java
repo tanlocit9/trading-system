@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * REST controller exposing trade history endpoints.
+ * <p>Provides retrieval of a user's trade history ordered by execution time.</p>
+ */
 @RestController
 @RequestMapping("/api/histories")
 @RequiredArgsConstructor

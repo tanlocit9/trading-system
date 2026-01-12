@@ -19,6 +19,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * Service responsible for executing trades and updating user wallets and history.
+ */
 @Service
 @RequiredArgsConstructor
 public class TradeService {
@@ -30,6 +33,15 @@ public class TradeService {
 
     private final UserEntityRepository userRepo;
 
+    /**
+     * Execute a trade on behalf of the given user.
+     *
+     * @param email    user's email used to find the account
+     * @param pair     trading pair to execute
+     * @param side     buy or sell
+     * @param quantity amount to trade
+     * @return persisted trade history record
+     */
     @Transactional
     public TradeHistoryEntity executeTrade(String email, CryptoPairEnum pair, OrderSideEnum side, BigDecimal quantity) {
         UserEntity user = userRepo.findFirstByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));

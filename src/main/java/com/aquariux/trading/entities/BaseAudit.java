@@ -13,6 +13,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+/**
+ * Base class that provides auditing fields for entities.
+ * <p>Includes created/modified timestamps and user information populated by Spring Data JPA auditing.</p>
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter

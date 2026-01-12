@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller providing endpoints to fetch best price information.
+ */
 @RestController
 @RequestMapping("/api/prices")
 @RequiredArgsConstructor
