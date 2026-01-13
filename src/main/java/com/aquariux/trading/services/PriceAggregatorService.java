@@ -30,7 +30,7 @@ public class PriceAggregatorService {
 
     private final BestPriceEntityRepository bestPriceEntityRepository;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
 
     @Value("${binance.api.url:https://api.binance.com/api/v3/ticker/bookTicker}")
     private String binanceUrl;
@@ -46,7 +46,6 @@ public class PriceAggregatorService {
         try {
             // 1. Fetch data from Binance
             BinanceTicker[] binanceTickers = restTemplate.getForObject(binanceUrl, BinanceTicker[].class);
-
             // 2. Fetch data from Huobi
             HuobiResponse huobiResponse = restTemplate.getForObject(huobiUrl, HuobiResponse.class);
 
