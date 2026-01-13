@@ -6,7 +6,7 @@ plugins {
 
 group = "com.aquariux"
 version = "0.0.1-SNAPSHOT"
-description = "Crypto trading system"
+description = "Crypto trading system (Binance clone)"
 
 java {
 	toolchain {
