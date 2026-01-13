@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "8d6d4c6e-9de7-4c8c-bb8f-56c4b502c710",
+		"name": "Trading",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12545155"
+	},
+	"item": [
+		{
+			"name": "Get latest price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prices/latest",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prices",
+						"latest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get history by email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/histories/trader@example.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"histories",
+						"trader@example.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get wallets by email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wallets/trader@example.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wallets",
+						"trader@example.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy 1 BTC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"trader@example.com\",\r\n    \"pair\": \"BTCUSDT\",\r\n    \"side\": \"BUY\",\r\n    \"quantity\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trade/execute",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trade",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell 1 BTC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"trader@example.com\",\r\n    \"pair\": \"BTCUSDT\",\r\n    \"side\": \"SELL\",\r\n    \"quantity\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trade/execute",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trade",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy 1 ETH",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"trader@example.com\",\r\n    \"pair\": \"ETHUSDT\",\r\n    \"side\": \"BUY\",\r\n    \"quantity\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trade/execute",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trade",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell 1 ETH",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"trader@example.com\",\r\n    \"pair\": \"ETHUSDT\",\r\n    \"side\": \"SELL\",\r\n    \"quantity\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trade/execute",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trade",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
